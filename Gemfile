@@ -72,6 +72,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :test do
