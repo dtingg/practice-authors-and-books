@@ -14,7 +14,13 @@
       <h1>Welcome to Ada Books</h1>
     </header>
     <div>
-      <%= link_to "New Book", new_book_path %>
+      <ul>
+        <li>
+          <%= link_to "New Book", new_book_path %>
+        </li>
+        <li>
+          <%= link_to "All books", books_path %>
+        </li>
     </div>
     <%= yield %>
     <footer>
