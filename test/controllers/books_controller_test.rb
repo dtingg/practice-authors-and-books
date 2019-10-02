@@ -39,6 +39,7 @@ describe BooksController do
 
       new_book = Book.find_by(title: "Cat in the Hat")
       expect(new_book).wont_be_nil
+      must_redirect_to books_path
 
 
     end
