@@ -21,4 +21,28 @@ describe BooksController do
     end
   end
 
+  describe "create" do
+    it "can create a book!" do
+      # Arrange
+      test_params = {
+        book: {
+          title: "Cat in the Hat",
+          author: "Dr. Seuss",
+          description: "Tricksy cat!"
+        }
+      } 
+      # Act
+      expect {
+        post books_path, params: test_params
+        # Assert
+      }.must_differ 'Book.count', 1
+
+      new_book = Book.find_by(title: "Cat in the Hat")
+      expect(new_book).wont_be_nil
+      must_redirect_to books_path
+
+
+    end
+  end
+
 end
