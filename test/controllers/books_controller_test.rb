@@ -72,12 +72,15 @@ describe BooksController do
         post books_path, params: book_hash
       }.must_differ 'Book.count', 1
 
-      must_redirect_to books_path
+      must_redirect_to root_path
     end
 
   end
 
   describe 'update action' do
+    before do
+      @new_book = Book.create(title: "new book")
+    end
 
     it "updates an existing book successfully and redirects to home" do
 
@@ -99,9 +102,12 @@ describe BooksController do
 
       # Act
       # Update the book data, don't forget to send the updated_book_form_data in params here
+      expect {
+        patch book_path(existing_book.id), params: updated_book_form_data
+      }.wont_change 'Book.count'
 
       # Assert
-      # expect( Book.find_by(id: existing_book.id).title ).must_equal "Practical Object Oriented Programming in Ruby"
+      expect( Book.find_by(id: existing_book.id).title ).must_equal "Practical Object Oriented Programming in Ruby"
 
     end
 
