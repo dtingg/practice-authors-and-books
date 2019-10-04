@@ -1,3 +1,22 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book-input {
+    display: grid;
+    grid-template-columns: auto minmax(400px, 1fr);
+    row-gap: 0.5em;
+    column-gap: 0.3em;
+
+    label {
+        grid-column: 1;
+    }
+
+    input, textarea {
+        grid-column: 2;
+    }
+
+    textarea {
+        min-height: 5em;
+    }
+}
