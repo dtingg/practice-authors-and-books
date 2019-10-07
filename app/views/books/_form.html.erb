@@ -1,11 +1,16 @@
 <p>Please provide the following information to <%= verb_name %> your book to our database:</p>
 
+
 <%= form_with model: @book, class: "book-input" do |f| %>
+
+
+  
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+  <%= f.label :author_id %>
+  <%= f.select :author_id, Author.all.map{ |auth| [auth.name, auth.id] } %>
 
   <%= f.label :description %>
   <%= f.text_area :description %>

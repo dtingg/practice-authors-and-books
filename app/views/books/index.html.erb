@@ -3,7 +3,7 @@
   <% @books.each do |book|  %>
     <li>
       <%= link_to book.title, book_path(book) %>
-      By: <%= book[:author] %> <%= link_to "Edit", edit_book_path(book) %> <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"}%>
+      By: <%= book.author.name %> <%= link_to "Edit", edit_book_path(book) %> <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"}%>
     </li>
   <% end %>
 </ul>
