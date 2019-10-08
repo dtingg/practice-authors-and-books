@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.alpha_books
   end
   
   def show
@@ -66,8 +66,10 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    return params.require(:book).permit(:author_id, :title, 
-    :description)
+    return params.require(:book).permit(
+      :author_id, :title, 
+      :description, :publication_date
+    )
   end
   
 end

@@ -1,16 +1,25 @@
 <p>Please provide the following information to <%= verb_name %> your book to our database:</p>
 
+<% if @book.errors.any? %>
+<h1>Errors</h1>
+  <ul class="errors">
+    <% @book.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_with model: @book, class: "book-input" do |f| %>
-
-
-  
-
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <%= f.label :author_id %>
   <%= f.select :author_id, Author.all.map{ |auth| [auth.name, auth.id] } %>
+
+  <%= f.label :publication_date %>
+  <%= f.text_field :publication_date %>
 
   <%= f.label :description %>
   <%= f.text_area :description %>
