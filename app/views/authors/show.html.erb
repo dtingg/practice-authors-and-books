@@ -1,0 +1,10 @@
+<h3>Name: <%= @author.name %></h3>
+  <p>Books: 
+    <% @author.books.each do |book| %>
+      <%= link_to book.title, book_path(book) %>
+    <% end %>
+  </p>
+  <p>First Published:
+    <%= @author.first_published %>
+  </p>
+<p><%= link_to "Return to Book List", books_path %></p>
