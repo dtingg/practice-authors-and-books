@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :books #, except: [:index]
   
   get 'authors/:id', to: 'authors#show', as: 'author'
+  get "/login", to: "users#login_form", as: "login"
+  post "/login", to: "users#login"
+  post "/logout", to: "users#logout", as: "logout"
+  get "/users/current", to: "users#current", as: "current_user"
 end
