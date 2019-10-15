@@ -19,7 +19,9 @@ class BooksController < ApplicationController
   
   def create
     @book = Book.new(book_params) #instantiate a new book
+    
     if @book.save # save returns true if the database insert succeeds
+      flash[:success] = "Book added successfully"
       redirect_to root_path # go to the index so we can see the book in the list
       return
     else # save failed :(
@@ -40,6 +42,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find_by(id: params[:id])
     if @book.update(book_params)
+      flash[:success] = "Book updated successfully"
       redirect_to root_path # go to the index so we can see the book in the list
       return
     else # save failed :(
