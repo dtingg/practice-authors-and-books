@@ -23,13 +23,15 @@
         </li>
         <% if session[:user_id].nil?%>
         <li>
-          <%= link_to "Login", login_path %>
+          <%= link_to "Login with Github", github_login_path %>
         </li>
         <% else %>
           <li>
-            <%= link_to "Logout", logout_path, method: :post %>
+            <%= link_to "Logout", logout_path, method: "delete" %>
           </li>
-        Logged in as <%= User.find_by(id: session[:user_id]).username %>
+        <% end %>
+        <% if @user %>
+          Logged in as <%= @user.name %>
         <% end %>
       </ul>  
     </div>
