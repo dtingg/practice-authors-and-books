@@ -27,6 +27,11 @@
   <%# <%= f.label :read %>
   <%# <%= f.check_box :read %>
 
+  <div>
+    <%= f.label :genres %>
+    <%= collection_check_boxes(:book, :genre_ids, Genre.all, :id, :name )%>
+  </div><br>
+
   <%= f.submit "#{action_name} Book", class: "book-button" %>
 
 <% end %>

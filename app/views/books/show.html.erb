@@ -1,7 +1,13 @@
-
-
 <h2>Title: <%= @book.title %></h2>
 <h3>Author: <%= @book.author.name %></h3>
 <h3>Publication Date: <%= @book.publication_date %></h3>
 
+<p>Genres:</p>
+<ul>
+  <% @book.genres.each do |genre|%>
+  <li>
+  <%= genre.name %>
+  </li>
+  <% end %>
+</ul>
 <p><%= link_to "Return to Book List", books_path %></p>
