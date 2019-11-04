@@ -1,12 +1,5 @@
-ada:
+gwiff:
+  name: devinh
+  email: blah@zone.one
+  uid: 0987654
   provider: github
-  uid: 12345
-  email: ada@adadevelopersacademy.org
-  username: countess_ada
-  name: Ada
-grace:
-  provider: github
-  uid: 13371337
-  email: grace@hooper.net
-  username: graceful_hopps
-  name: Grace
